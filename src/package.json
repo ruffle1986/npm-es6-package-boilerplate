@@ -1,0 +1,43 @@
+{
+  "name": "module-name",
+  "version": "1.0.0",
+  "description": "description",
+  "license": "MIT",
+  "repository": "ruffle1986/module-name",
+  "author": {
+    "name": "ruffle1986",
+    "email": "ftamas.mail@gmail.com"
+  },
+  "main": "./dist/index.js",
+  "scripts": {
+    "test": "xo",
+    "posttest": "ava",
+    "build": "babel lib -d dist",
+    "prepublish": "npm test && npm run build",
+    "cover": "istanbul cover ./node_modules/.bin/ava test.js",
+    "coveralls": "npm run cover && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
+  },
+  "xo": {
+    "ignores": [
+      "dist/**"
+    ],
+    "envs": [
+      "node"
+    ],
+    "space": true,
+    "esnext": true,
+    "semicolon": false
+  },
+  "files": [
+    "lib"
+  ],
+  "keywords": [],
+  "devDependencies": {
+    "ava": "git://github.com/sindresorhus/ava",
+    "babel": "^5.8.23",
+    "coveralls": "^2.11.4",
+    "istanbul": "^0.3.19",
+    "xo": "*"
+  },
+  "dependencies": {}
+}
